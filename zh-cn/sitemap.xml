@@ -2,7 +2,8 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://zackjiang21.github.io/zh-cn/categories/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
+            <loc>http://zackjiang21.github.io/zh-cn/tags/auditbeat/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/categories/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="http://zackjiang21.github.io/categories/"
@@ -11,25 +12,11 @@
                     hreflang="zh-cn"
                     href="http://zackjiang21.github.io/zh-cn/categories/"
                     /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/posts/my-first-post/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://zackjiang21.github.io/posts/my-first-post/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="http://zackjiang21.github.io/zh-cn/posts/my-first-post/"
-                    /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/posts/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://zackjiang21.github.io/posts/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="http://zackjiang21.github.io/zh-cn/posts/"
-                    /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/tags/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
+            <loc>http://zackjiang21.github.io/zh-cn/categories/elastic-beats/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/tags/elastic-beats/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/tags/metricbeat/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/posts/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/tags/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="http://zackjiang21.github.io/tags/"
@@ -38,34 +25,7 @@
                     hreflang="zh-cn"
                     href="http://zackjiang21.github.io/zh-cn/tags/"
                     /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/tags/tagtest/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://zackjiang21.github.io/tags/tagtest/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="http://zackjiang21.github.io/zh-cn/tags/tagtest/"
-                    /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/tags/tagtest2/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://zackjiang21.github.io/tags/tagtest2/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="http://zackjiang21.github.io/zh-cn/tags/tagtest2/"
-                    /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/categories/test/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
-                        rel="alternate"
-                        hreflang="en"
-                        href="http://zackjiang21.github.io/categories/test/"
-                        /><xhtml:link
-                    rel="alternate"
-                    hreflang="zh-cn"
-                    href="http://zackjiang21.github.io/zh-cn/categories/test/"
-                    /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/</loc><lastmod>2022-07-23T14:56:35&#43;04:00</lastmod><xhtml:link
+            <loc>http://zackjiang21.github.io/zh-cn/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
                         href="http://zackjiang21.github.io/"
@@ -73,4 +33,5 @@
                     rel="alternate"
                     hreflang="zh-cn"
                     href="http://zackjiang21.github.io/zh-cn/"
-                    /></url></urlset>
+                    /></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url></urlset>

@@ -4,15 +4,7 @@
         <link>http://zackjiang21.github.io/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>zackjiang11@gmail.com (Zack Jiang)</managingEditor>
-            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 12:51:20 &#43;0400</lastBuildDate>
+            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster>
             <atom:link href="http://zackjiang21.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
-    <title>My First Post</title>
-    <link>http://zackjiang21.github.io/posts/my-first-post/</link>
-    <pubDate>Sat, 23 Jul 2022 12:51:20 &#43;0400</pubDate>
-    <author>Zack Jiang</author>
-    <guid>http://zackjiang21.github.io/posts/my-first-post/</guid>
-    <description><![CDATA[]]></description>
-</item>
-</channel>
+        </channel>
 </rss>

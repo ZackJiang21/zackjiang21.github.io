@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Zack</title>
-        <link>http://zackjiang21.github.io/zh-cn/</link>
-        <description>This is my cool site</description>
+        <title>auditbeat - 标签 - Zack</title>
+        <link>http://zackjiang21.github.io/zh-cn/tags/auditbeat/</link>
+        <description>auditbeat - 标签 - Zack</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zackjiang11@gmail.com (Zack Jiang)</managingEditor>
-            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</lastBuildDate>
-            <atom:link href="http://zackjiang21.github.io/zh-cn/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</lastBuildDate><atom:link href="http://zackjiang21.github.io/zh-cn/tags/auditbeat/" rel="self" type="application/rss+xml" /><item>
     <title>如何从零开始创建一个AuditBeat Module</title>
     <link>http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/</link>
     <pubDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</pubDate>

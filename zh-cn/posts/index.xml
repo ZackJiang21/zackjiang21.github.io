@@ -4,13 +4,13 @@
         <link>http://zackjiang21.github.io/zh-cn/posts/</link>
         <description>所有文章 | Zack</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>zackjiang11@gmail.com (Zack Jiang)</managingEditor>
-            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 14:56:35 &#43;0400</lastBuildDate><atom:link href="http://zackjiang21.github.io/zh-cn/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>My First Post</title>
-    <link>http://zackjiang21.github.io/zh-cn/posts/my-first-post/</link>
-    <pubDate>Sat, 23 Jul 2022 14:56:35 &#43;0400</pubDate>
+            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</lastBuildDate><atom:link href="http://zackjiang21.github.io/zh-cn/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>如何从零开始创建一个AuditBeat Module</title>
+    <link>http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/</link>
+    <pubDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</pubDate>
     <author>Zack Jiang</author>
-    <guid>http://zackjiang21.github.io/zh-cn/posts/my-first-post/</guid>
-    <description><![CDATA[]]></description>
+    <guid>http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/</guid>
+    <description><![CDATA[目标 这里我们实现一个简单的demo工程，展示auditbeat如何实现一个module，并把数据发送到ElasticSearch，工程源码可]]></description>
 </item>
 </channel>
 </rss>
