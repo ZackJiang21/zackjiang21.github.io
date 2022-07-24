@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Zack</title>
-        <link>http://zackjiang21.github.io/</link>
-        <description>This is my cool site</description>
+        <title>auditbeat - Tag - Zack</title>
+        <link>http://zackjiang21.github.io/tags/auditbeat/</link>
+        <description>auditbeat - Tag - Zack</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>zackjiang11@gmail.com (Zack Jiang)</managingEditor>
-            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</lastBuildDate>
-            <atom:link href="http://zackjiang21.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</lastBuildDate><atom:link href="http://zackjiang21.github.io/tags/auditbeat/" rel="self" type="application/rss+xml" /><item>
     <title>How to Develop an Auditbeat Module from scrach</title>
     <link>http://zackjiang21.github.io/posts/create-auditbeat-module/</link>
     <pubDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</pubDate>

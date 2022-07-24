@@ -1,35 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>如何从零开始创建一个AuditBeat Module - Zack</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="如何从零开始创建一个AuditBeat Module" />
-<meta property="og:description" content="目标 这里我们实现一个简单的demo工程，展示auditbeat如何实现一个module，并把数据发送到ElasticSearch，工程源码可" />
+        <title>How to Develop an Auditbeat Module from scrach - Zack</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="How to Develop an Auditbeat Module from scrach" />
+<meta property="og:description" content="Goal Our goal is to develop a simple demo project, with our own auditbeat module collecting data and populate data to ElasticSearch. You can download the source code from Github
+Develop an auditbeat Module auditbeat Module send heartbeat package with host name to ElasticSearch periodically The project based on elastic-beats 8.3.3, other version should be similar.
+Concept Module
+A module is the component auditbeat provide the functionality. With metricbeat and libbeat, we can quickly develop an auditbeat module to collect data and popuate to ElasticSearch." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://zackjiang21.github.io/posts/create-auditbeat-module/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-23T20:16:19+04:00" />
 <meta property="article:modified_time" content="2022-07-23T20:16:19+04:00" /><meta property="og:site_name" content="Zack" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="如何从零开始创建一个AuditBeat Module"/>
-<meta name="twitter:description" content="目标 这里我们实现一个简单的demo工程，展示auditbeat如何实现一个module，并把数据发送到ElasticSearch，工程源码可"/>
+<meta name="twitter:title" content="How to Develop an Auditbeat Module from scrach"/>
+<meta name="twitter:description" content="Goal Our goal is to develop a simple demo project, with our own auditbeat module collecting data and populate data to ElasticSearch. You can download the source code from Github
+Develop an auditbeat Module auditbeat Module send heartbeat package with host name to ElasticSearch periodically The project based on elastic-beats 8.3.3, other version should be similar.
+Concept Module
+A module is the component auditbeat provide the functionality. With metricbeat and libbeat, we can quickly develop an auditbeat module to collect data and popuate to ElasticSearch."/>
 <meta name="application-name" content="My cool site">
 <meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://zackjiang21.github.io/posts/create-auditbeat-module/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "如何从零开始创建一个AuditBeat Module",
-        "inLanguage": "zh-CN",
+        "headline": "How to Develop an Auditbeat Module from scrach",
+        "inLanguage": "en",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/zackjiang21.github.io\/zh-cn\/posts\/create-auditbeat-module\/"
-        },"genre": "posts","keywords": "elastic-beats, auditbeat, metricbeat","wordcount":  2165 ,
-        "url": "http:\/\/zackjiang21.github.io\/zh-cn\/posts\/create-auditbeat-module\/","datePublished": "2022-07-23T20:16:19+04:00","dateModified": "2022-07-23T20:16:19+04:00","publisher": {
+            "@id": "http:\/\/zackjiang21.github.io\/posts\/create-auditbeat-module\/"
+        },"genre": "posts","keywords": "elastic-beats, auditbeat, metricbeat","wordcount":  825 ,
+        "url": "http:\/\/zackjiang21.github.io\/posts\/create-auditbeat-module\/","datePublished": "2022-07-23T20:16:19+04:00","dateModified": "2022-07-23T20:16:19+04:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -42,14 +48,14 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/zh-cn/" title="Zack">Zack&#39;s Blog</a>
+            <a href="/" title="Zack">Zack&#39;s Blog</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/zh-cn/posts/"> 文章 </a><a class="menu-item" href="/zh-cn/tags/"> 标签 </a><a class="menu-item" href="/zh-cn/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-                </a><a href="javascript:void(0);" class="menu-item language" title="选择语言">
+                </a><a href="javascript:void(0);" class="menu-item language" title="Select Language">
                     <i class="fa fa-globe" aria-hidden="true"></i>                      
-                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/create-auditbeat-module/">English</option><option value="/zh-cn/posts/create-auditbeat-module/" selected>简体中文</option></select>
+                    <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/posts/create-auditbeat-module/" selected>English</option><option value="/zh-cn/posts/create-auditbeat-module/">简体中文</option></select>
                 </a></div>
         </div>
     </div>
@@ -57,76 +63,76 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/zh-cn/" title="Zack">Zack&#39;s Blog</a>
+                <a href="/" title="Zack">Zack&#39;s Blog</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/zh-cn/posts/" title="">文章</a><a class="menu-item" href="/zh-cn/tags/" title="">标签</a><a class="menu-item" href="/zh-cn/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
-            </a><a href="javascript:void(0);" class="menu-item" title="选择语言">
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">
                     <i class="fa fa-globe fa-fw" aria-hidden="true"></i>
-                    <select class="language-select" onchange="location = this.value;"><option value="/posts/create-auditbeat-module/">English</option><option value="/zh-cn/posts/create-auditbeat-module/" selected>简体中文</option></select>
+                    <select class="language-select" onchange="location = this.value;"><option value="/posts/create-auditbeat-module/" selected>English</option><option value="/zh-cn/posts/create-auditbeat-module/">简体中文</option></select>
                 </a></div>
     </div>
 </header><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">目录</h2>
+            <h2 class="toc-title">Contents</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">如何从零开始创建一个AuditBeat Module</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/zh-cn/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zack Jiang</a></span>&nbsp;<span class="post-category">收录于 <a href="/zh-cn/categories/elastic-beats/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Elastic Beats</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-23">2022-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 2165 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">How to Develop an Auditbeat Module from scrach</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Zack Jiang</a></span>&nbsp;<span class="post-category">included in <a href="/categories/elastic-beats/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Elastic Beats</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-23">2022-07-23</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;825 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;4 minutes&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>目录</span>
+                    <span>Contents</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#目标">目标</a></li>
-    <li><a href="#概念">概念</a></li>
-    <li><a href="#创建module">创建Module</a></li>
-    <li><a href="#创建metricset">创建MetricSet</a></li>
-    <li><a href="#注册zack-module到auditbeat中">注册Zack Module到<code>auditbeat</code>中</a></li>
-    <li><a href="#验证">验证</a></li>
+    <li><a href="#goal">Goal</a></li>
+    <li><a href="#concept">Concept</a></li>
+    <li><a href="#develop-module">Develop Module</a></li>
+    <li><a href="#develop-metricset">Develop MetricSet</a></li>
+    <li><a href="#include-module-to-auditbeat">Include Module to <code>auditbeat</code></a></li>
+    <li><a href="#verification">Verification</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h2 id="目标">目标</h2>
-<p>这里我们实现一个简单的demo工程，展示<code>auditbeat</code>如何实现一个module，并把数据发送到ElasticSearch，工程源码可以在<a href="https://github.com/ZackJiang21/beats/tree/module-demo" target="_blank" rel="noopener noreffer ">Github</a>上下载</p>
+            </div><div class="content" id="content"><h2 id="goal">Goal</h2>
+<p>Our goal is to develop a simple demo project, with our own auditbeat module collecting data and populate data to ElasticSearch. You can download the source code from <a href="https://github.com/ZackJiang21/beats/tree/module-demo" target="_blank" rel="noopener noreffer ">Github</a></p>
 <ul>
-<li>创建一个<code>auditbeat</code> Module</li>
-<li><code>auditbeat</code> Module周期性向ElasticSearch发送含有Host Name的心跳数据包</li>
+<li>Develop an <code>auditbeat</code> Module</li>
+<li><code>auditbeat</code> Module send heartbeat package with host name to ElasticSearch periodically</li>
 </ul>
 <blockquote>
-<p>Demo工程基于<code>elastic-beats</code> 8.3.3版本，早期版本原理类似</p>
+<p>The project based on <code>elastic-beats</code> 8.3.3, other version should be similar.</p>
 </blockquote>
-<h2 id="概念">概念</h2>
+<h2 id="concept">Concept</h2>
 <ul>
 <li>
 <p>Module</p>
-<p>Module就是<code>auditbeat</code>中具体实现一个功能的模块，<code>auditbeat</code>依赖<code>metricbeat</code>和<code>libbeat</code>提供的API，可以很快的开发一个模块去采集数据并存储到ElasticSearch中</p>
+<p>A module is the component <code>auditbeat</code> provide the functionality. With <code>metricbeat</code> and <code>libbeat</code>, we can quickly develop an <code>auditbeat</code> module to collect data and popuate to ElasticSearch.</p>
 </li>
 <li>
 <p>MetricSet</p>
-<p>MetricSet是<code>auditbeat</code>的基本单位，一个MetricSet泛指收集的一种数据类型，一个<code>auditbeat</code>Module可以包含多个MetricSet，有些简单的Module只含有一个MetricSet。</p>
+<p>MetricSet is a basic unit in <code>auditbeat</code>, it indicates which metric to monitor in a <code>auditbeat</code> module. A module can contains more than one metircset, but some simple module only have a single metricset as well.</p>
 <blockquote>
-<p>例如，<code>auditbeat</code>的<code>system</code>Module中包含有<code>login</code>, <code>user</code>, <code>socket</code>, <code>process</code>等MetricSet, <code>auditd</code>Module中只有一个MetricSet</p>
+<p>In <code>auditbeat</code>, system module contains metricsets of <code>login</code>, <code>user</code>, <code>socket</code>, <code>process</code>, etc. <code>auditd</code> module only has 1 metricset.</p>
 </blockquote>
 </li>
 <li>
 <p>Fields</p>
-<p>Fields是一个MetricSet产生的数据结构映射，<code>auditbeat</code>会将Fields通过<code>auditbeat setup</code>命令将Fields导入到index template中，以便在Kibana中展示</p>
+<p>Fields is the data mapping between the data generated by <code>auditbeat</code> module and the data in ElasticSearch. <code>auditbeat</code> would convert fields to index template mappings with <code>auditbeat setup</code> command to visualize the data in Kibana.</p>
 </li>
 <li>
 <p>Event</p>
-<p>Event是<code>auditbeat</code>中产生的包含数据的事件，由MetricSet产生，需要符合声明的Fields映射规范，并最终存储到ElasticSearch中</p>
+<p>Event is the data generated by <code>auditbeat</code>, MetricSet would collect the data and convert to event, then send the data to ElasticSearch through <code>reporter</code>.</p>
 </li>
 </ul>
-<h2 id="创建module">创建Module</h2>
+<h2 id="develop-module">Develop Module</h2>
 <ol>
-<li>初始化Demo Module目录结构在路径<code>auditbeat/module/zack_module</code>
+<li>We name our moule as <code>zack</code> and initialize the directory under <code>auditbeat/module/zack_module</code> with structure as below
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"> auditbeat/module/zack_module/
 </span></span><span class="line"><span class="cl"> ├── heartbeat
 </span></span><span class="line"><span class="cl"> │   ├── event.go
@@ -139,10 +145,10 @@
 </span></span><span class="line"><span class="cl"> ├── zack.go
 </span></span><span class="line"><span class="cl"> └── zack_metric_set.go
 </span></span></code></pre></div><blockquote>
-<p><code>_meta</code>路径很重要，一定要创建，开发<code>elastic-beats</code>的很多工具会依赖这个路径</p>
+<p><strong>Important:</strong> <code>_meta</code> has to be there, because some of <code>elastic-beats</code> dev-tools have dependencies on the <code>_meta</code> path existences.</p>
 </blockquote>
 </li>
-<li>在<code>auditbeat/module/zack_module/zack.go</code>文件，声明Module如下
+<li>In <code>auditbeat/module/zack_module/zack.go</code>, clarify the module
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">zack_module</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="kn">import</span> <span class="p">(</span>
@@ -186,15 +192,15 @@
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div><blockquote>
 <ol>
-<li><code>auditbeat</code>中要在<code>init</code>方法中将Module通过<code>mb.Registry.AddModule</code>方法注册给<code>metricbeat</code></li>
-<li>Module实现都要继承<code>mb.BaseModule</code></li>
+<li>In <code>init</code> method, we register the module through <code>mb.Registry.AddModule</code></li>
+<li>All modules should inherited from <code>mb.BaseModule</code></li>
 </ol>
 </blockquote>
 </li>
 </ol>
-<h2 id="创建metricset">创建MetricSet</h2>
+<h2 id="develop-metricset">Develop MetricSet</h2>
 <ol>
-<li>文件<code>auditbeat/module/zack_module/zack_metric_set.go</code>中声明MetricSet
+<li>In <code>auditbeat/module/zack_module/zack_metric_set.go</code>, clarify the metricset
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">zack_module</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="kn">import</span> <span class="s">&#34;github.com/elastic/beats/v7/metricbeat/mb&#34;</span>
@@ -215,10 +221,10 @@
 </span></span><span class="line"><span class="cl">     <span class="k">return</span> <span class="nx">ms</span><span class="p">.</span><span class="nx">module</span><span class="p">.</span><span class="nx">hostName</span>
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div><blockquote>
-<p><code>auditbeat</code>的MetricSet实现需要继承<code>mb.BaseMetricSet</code></p>
+<p>MetricSet should inherited from <code>mb.BaseMetricSet</code></p>
 </blockquote>
 </li>
-<li>声明Event在文件<code>auditbeat/module/zack_module/heartbeat/event.go</code>
+<li>Define the event in <code>auditbeat/module/zack_module/heartbeat/event.go</code>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">heartbeat</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="kn">import</span> <span class="p">(</span>
@@ -241,7 +247,7 @@
 </span></span><span class="line"><span class="cl">     <span class="p">}</span>
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div></li>
-<li>在MetricSet <code>auditbeat/module/zack_module/heartbeat/metricset.go</code>路径中，添加MetricSet实现
+<li>In <code>auditbeat/module/zack_module/heartbeat/metricset.go</code>, add the implementation of our metricset
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">heartbeat</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"> <span class="kn">import</span> <span class="p">(</span>
@@ -283,14 +289,14 @@
 </span></span><span class="line"><span class="cl">     <span class="nx">reporter</span><span class="p">.</span><span class="nf">Event</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nf">buildHeartBeatEvent</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div><blockquote>
-<p>这里我们实现了<code>Fetch</code>接口来周期性获取数据，默认internal为10s，我们还可以使用<code>Run</code>接口来一次性触发任务</p>
+<p><code>Fetch</code> is used to fetch data periodically in <code>auditbeat</code>, if you want to trigger the task once, you can implement <code>Run</code> interface instead.</p>
 </blockquote>
 </li>
 </ol>
-<h2 id="注册zack-module到auditbeat中">注册Zack Module到<code>auditbeat</code>中</h2>
+<h2 id="include-module-to-auditbeat">Include Module to <code>auditbeat</code></h2>
 <ol>
 <li>
-<p>通过工具<code>/dev-tools/cmd/module_include_list/module_include_list.go</code>注册我们开发的Module和MetricSet，VSCode <code>launch.json</code>示例如下</p>
+<p>With the dev-tool of <code>/dev-tools/cmd/module_include_list/module_include_list.go</code>, we can include our module into <code>auditbeat</code> ，VSCode <code>launch.json</code> example below</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;[Dev] Module Include&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;go&#34;</span><span class="p">,</span>
@@ -305,12 +311,12 @@
 </span></span><span class="line"><span class="cl">     <span class="p">]</span>
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div><blockquote>
-<p>运行后查看<code>auditbeat/include/list.go</code>是否引入了我们最新开发的Module和MetricSet
-如果没有引入，<strong>请检查Module和MetricSet路径是否包含<code>_meta</code>路径</strong></p>
+<p>After execution, please check <code>auditbeat/include/list.go</code> imported the module and metricset we developed
+If not imported, **<em>please check the <code>meta</code> existence of module and metricset</em></p>
 </blockquote>
 </li>
 <li>
-<p>编辑<code>fields.yml</code>，声明<code>heatbeat.host_name</code>映射为<code>keyword</code></p>
+<p>In <code>fields.yml</code>, denfine the fields mapping with <code>heartbeat.host_name</code> as <code>keyword</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl">- <span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">zack</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Zack&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">decription</span><span class="p">:</span><span class="w"> </span><span class="p">&gt;</span><span class="sd">
@@ -323,7 +329,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">keyword</span><span class="w">
 </span></span></span></code></pre></div></li>
 <li>
-<p>通过工具<code>/dev-tools/cmd/asset/asset.go</code>生成Fields映射，生成<code>auditbeat/module/zack_module/fields.go</code>文件，VSCode launch.json示例如下：</p>
+<p>With dev-tool of<code>/dev-tools/cmd/asset/asset.go</code>, we generate the fields mapping in <code>auditbeat/module/zack_module/fields.go</code>, VSCode <code>launch.json</code> example below</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;[Dev] Generate Fields&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;go&#34;</span><span class="p">,</span>
@@ -343,17 +349,17 @@
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p>启用Module和MetriSet，编辑<code>auditbeat.yml</code>如下：</p>
+<p>Update <code>auditbeat.yml</code> to enable your module and metricset in <code>auditbeat</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">auditbeat.modules</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"> </span>- <span class="nt">module</span><span class="p">:</span><span class="w"> </span><span class="l">zack</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"> </span><span class="nt">metricsets</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">     </span>- <span class="l">heartbeat</span><span class="w">
 </span></span></span></code></pre></div></li>
 </ol>
-<h2 id="验证">验证</h2>
+<h2 id="verification">Verification</h2>
 <ol>
 <li>
-<p>通过<code>auditbeat setup</code>命令更新index template，VSCode <code>launch.json</code>如下</p>
+<p>Run <code>auditbeat setup</code> command to update index template, VSCode <code>launch.json</code> example as below</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;AuditBeat Setup&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">     <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;go&#34;</span><span class="p">,</span>
@@ -372,7 +378,7 @@
 </span></span><span class="line"><span class="cl"> <span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p>Kinana上验证Fields成功导入如下
+<p>Verify the index template mapping in Kibana
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -380,10 +386,10 @@
         data-srcset="./index_template.png, ./index_template.png 1.5x, ./index_template.png 2x"
         data-sizes="auto"
         alt="./index_template.png"
-        title="Alt Text" /></p>
+        title="index_template.png" /></p>
 </li>
 <li>
-<p>启动<code>auditbeat</code>，VSCode <code>launch.json</code>如下</p>
+<p>Start <code>auditbeat</code>, VSCode <code>launch.json</code> example as below</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;AuditBeat&#34;</span><span class="p">,</span>
 </span></span><span class="line"><span class="cl">    <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;go&#34;</span><span class="p">,</span>
@@ -400,7 +406,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div></li>
 <li>
-<p>验证Module数据成功导入ElaticSearch
+<p>Verify the module dumped data to ElasticSearch
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -408,27 +414,27 @@
         data-srcset="./data.png, ./data.png 1.5x, ./data.png 2x"
         data-sizes="auto"
         alt="./data.png"
-        title="Alt Text" /></p>
+        title="data.png" /></p>
 </li>
 </ol>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-07-23</span>
+                <span>Updated on 2022-07-23</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/" data-title="如何从零开始创建一个AuditBeat Module" data-hashtags="elastic-beats,auditbeat,metricbeat"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/" data-hashtag="elastic-beats"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/" data-title="如何从零开始创建一个AuditBeat Module"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/" data-title="如何从零开始创建一个AuditBeat Module"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/" data-title="如何从零开始创建一个AuditBeat Module"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="http://zackjiang21.github.io/posts/create-auditbeat-module/" data-title="How to Develop an Auditbeat Module from scrach" data-hashtags="elastic-beats,auditbeat,metricbeat"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="http://zackjiang21.github.io/posts/create-auditbeat-module/" data-hashtag="elastic-beats"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="http://zackjiang21.github.io/posts/create-auditbeat-module/" data-title="How to Develop an Auditbeat Module from scrach"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="http://zackjiang21.github.io/posts/create-auditbeat-module/" data-title="How to Develop an Auditbeat Module from scrach"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="http://zackjiang21.github.io/posts/create-auditbeat-module/" data-title="How to Develop an Auditbeat Module from scrach"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/zh-cn/tags/elastic-beats/">elastic-beats</a>,&nbsp;<a href="/zh-cn/tags/auditbeat/">auditbeat</a>,&nbsp;<a href="/zh-cn/tags/metricbeat/">metricbeat</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/elastic-beats/">elastic-beats</a>,&nbsp;<a href="/tags/auditbeat/">auditbeat</a>,&nbsp;<a href="/tags/metricbeat/">metricbeat</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/zh-cn/">主页</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
         </section>
     </div>
 
@@ -437,10 +443,10 @@
 </article></div>
             </main></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

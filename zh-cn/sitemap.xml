@@ -2,7 +2,15 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://zackjiang21.github.io/zh-cn/tags/auditbeat/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/tags/auditbeat/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://zackjiang21.github.io/tags/auditbeat/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://zackjiang21.github.io/zh-cn/tags/auditbeat/"
+                    /></url><url>
             <loc>http://zackjiang21.github.io/zh-cn/categories/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -12,10 +20,42 @@
                     hreflang="zh-cn"
                     href="http://zackjiang21.github.io/zh-cn/categories/"
                     /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/categories/elastic-beats/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/tags/elastic-beats/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/tags/metricbeat/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/posts/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/categories/elastic-beats/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://zackjiang21.github.io/categories/elastic-beats/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://zackjiang21.github.io/zh-cn/categories/elastic-beats/"
+                    /></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/tags/elastic-beats/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://zackjiang21.github.io/tags/elastic-beats/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://zackjiang21.github.io/zh-cn/tags/elastic-beats/"
+                    /></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/tags/metricbeat/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://zackjiang21.github.io/tags/metricbeat/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://zackjiang21.github.io/zh-cn/tags/metricbeat/"
+                    /></url><url>
+            <loc>http://zackjiang21.github.io/zh-cn/posts/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://zackjiang21.github.io/posts/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://zackjiang21.github.io/zh-cn/posts/"
+                    /></url><url>
             <loc>http://zackjiang21.github.io/zh-cn/tags/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
                         rel="alternate"
                         hreflang="en"
@@ -34,4 +74,12 @@
                     hreflang="zh-cn"
                     href="http://zackjiang21.github.io/zh-cn/"
                     /></url><url>
-            <loc>http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod></url></urlset>
+            <loc>http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/</loc><lastmod>2022-07-23T20:16:19&#43;04:00</lastmod><xhtml:link
+                        rel="alternate"
+                        hreflang="en"
+                        href="http://zackjiang21.github.io/posts/create-auditbeat-module/"
+                        /><xhtml:link
+                    rel="alternate"
+                    hreflang="zh-cn"
+                    href="http://zackjiang21.github.io/zh-cn/posts/create-auditbeat-module/"
+                    /></url></urlset>

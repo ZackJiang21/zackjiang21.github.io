@@ -4,13 +4,16 @@
         <link>http://zackjiang21.github.io/posts/</link>
         <description>All Posts | Zack</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>zackjiang11@gmail.com (Zack Jiang)</managingEditor>
-            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 12:51:20 &#43;0400</lastBuildDate><atom:link href="http://zackjiang21.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>My First Post</title>
-    <link>http://zackjiang21.github.io/posts/my-first-post/</link>
-    <pubDate>Sat, 23 Jul 2022 12:51:20 &#43;0400</pubDate>
+            <webMaster>zackjiang11@gmail.com (Zack Jiang)</webMaster><lastBuildDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</lastBuildDate><atom:link href="http://zackjiang21.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>How to Develop an Auditbeat Module from scrach</title>
+    <link>http://zackjiang21.github.io/posts/create-auditbeat-module/</link>
+    <pubDate>Sat, 23 Jul 2022 20:16:19 &#43;0400</pubDate>
     <author>Zack Jiang</author>
-    <guid>http://zackjiang21.github.io/posts/my-first-post/</guid>
-    <description><![CDATA[]]></description>
+    <guid>http://zackjiang21.github.io/posts/create-auditbeat-module/</guid>
+    <description><![CDATA[Goal Our goal is to develop a simple demo project, with our own auditbeat module collecting data and populate data to ElasticSearch. You can download the source code from Github
+Develop an auditbeat Module auditbeat Module send heartbeat package with host name to ElasticSearch periodically The project based on elastic-beats 8.3.3, other version should be similar.
+Concept Module
+A module is the component auditbeat provide the functionality. With metricbeat and libbeat, we can quickly develop an auditbeat module to collect data and popuate to ElasticSearch.]]></description>
 </item>
 </channel>
 </rss>
